@@ -9,7 +9,7 @@
  * Description: function to execute monty files
  * Return: nothing
  */
-void executemonty(stack_t *stack,const char *filename)
+void executemonty(stack_t **stack,const char *filename)
 {
 	FILE *file = fopen(filename, "r");
 	char opcode[10];
@@ -18,7 +18,7 @@ void executemonty(stack_t *stack,const char *filename)
 
 	if (file == NULL)
 	{
-		printf("Error: Can't open file monty\n");
+		fprintf(stderr, "Error: Can't open file monty\n");
 		exit(EXIT_FAILURE);
 	}
 	while (fscanf(file, "%s", opcode) == 1)
@@ -27,24 +27,20 @@ void executemonty(stack_t *stack,const char *filename)
 		{
 			if (fscanf(file, "%d", &value) != 1)
 			{
-				printf("Error: Invalid instruction format on line %d\n", line_number);
+				fprintf(stderr, "Error: Invalid instruction format on line %d\n", line_number);
 				exit(EXIT_FAILURE);
 			}
-			push(&stack, value);
+			push(stack, value);
 		}
 		else if (strcmp(opcode, "pop") == 0)
 		{
-			pop(&stack);
 		}
 		else
 		{
-			printf("Error: L%d: unknown instruction %s\n", line_number, opcode);
+			fprintf(stderr, "Error: L%d: unknown instruction %s\n", line_number, opcode);
 			exit(EXIT_FAILURE);
 		}
 		line_number++;
 	}
-	free(line);
 	fclose(file);
-	return (0);
-}
 }
