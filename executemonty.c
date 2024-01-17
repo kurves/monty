@@ -1,7 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "main.c"
 #include "main.h"
 
 /**
@@ -10,14 +9,14 @@
  * Description: function to execute monty files
  * Return: nothing
  */
-void executemonty(const char *filename)
+void executemonty(stack_t *stack,const char *filename)
 {
 	FILE *file = fopen(filename, "r");
 	char opcode[10];
 	int line_number = 1;
 	int value;
 
-	if (file == null)
+	if (file == NULL)
 	{
 		printf("Error: Can't open file monty\n");
 		exit(EXIT_FAILURE);
@@ -31,16 +30,16 @@ void executemonty(const char *filename)
 				printf("Error: Invalid instruction format on line %d\n", line_number);
 				exit(EXIT_FAILURE);
 			}
-			push(&myStack, value);
+			push(&stack, value);
 		}
 		else if (strcmp(opcode, "pop") == 0)
 		{
-			pop(&myStack);
+			pop(&stack);
 		}
 		else
 		{
 			printf("Error: L%d: unknown instruction %s\n", line_number, opcode);
-			exit(EXIT_FAILURE)
+			exit(EXIT_FAILURE);
 		}
 		line_number++;
 	}
