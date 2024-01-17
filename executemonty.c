@@ -13,13 +13,39 @@
 void executemonty(const char *filename)
 {
 	FILE *file = fopen(filename, "r");
-        char opcode[10];
-        int line_number = 1;
-        int value;
+	char opcode[10];
+	int line_number = 1;
+	int value;
 
-        if (file == null)
-        {
-                printf("Error: Can't open file monty\n");
-                exit(EXIT_FAILURE);
-        }
+	if (file == null)
+	{
+		printf("Error: Can't open file monty\n");
+		exit(EXIT_FAILURE);
+	}
+	while (fscanf(file, "%s", opcode) == 1)
+	{
+		if (strcmp(opcode, "push") == 0)
+		{
+			if (fscanf(file, "%d", &value) != 1)
+			{
+				printf("Error: Invalid instruction format on line %d\n", line_number);
+				exit(EXIT_FAILURE);
+			}
+			push(&myStack, value);
+		}
+		else if (strcmp(opcode, "pop") == 0)
+		{
+			pop(&myStack);
+		}
+		else
+		{
+			printf("Error: L%d: unknown instruction %s\n", line_number, opcode);
+			exit(EXIT_FAILURE)
+		}
+		line_number++;
+	}
+	free(line);
+	fclose(file);
+	return (0);
+}
 }
