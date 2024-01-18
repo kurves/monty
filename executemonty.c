@@ -35,6 +35,7 @@ void executemonty(stack_t **stack,const char *filename)
 		}
 		else if (strcmp(opcode, "pop") == 0)
 		{
+			pall(&stack, line_number);
 		}
 		else
 		{
