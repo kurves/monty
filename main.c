@@ -16,10 +16,7 @@ int main(int argc, char *argv[])
 	FILE *file;
 	char opcode[10];
 	int value;
-	unsigned int line_number;
-	line_number = 1;
-	value = 0;
-
+	unsigned int line_number = 1;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -56,11 +53,11 @@ int main(int argc, char *argv[])
 		}
 		else if (strcmp(opcode, "swap") == 0)
 		{
-			pop(&stack, line_number);
+			swap(&stack, line_number);
 		}
 		else if (strcmp(opcode, "add") == 0)
 		{
-			pop(&stack, line_number);
+			add(&stack, line_number);
 		}
 		line_number++;
 	}
