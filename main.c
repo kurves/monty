@@ -33,10 +33,18 @@ int main(int argc, char *argv[])
 	}
 	while (fscanf(file, "%s", opcode) == 1)
 	{
-		if (!executemonty(&stack, opcode, value, line_number, file))
+		if (strcmp(opcode, "push") == 0)
 		{
-			fprintf(stderr, "Error: L%d: unknown instruction %s\n", line_number, opcode);
-			exit(EXIT_FAILURE);
+			if (fscanf(file, "%d", &value) != 1)
+			{
+				fprintf(stderr, "Error: L%d: usage: push integer\n", line_number);
+				exit(EXIT_FAILURE);
+			}
+			push(&stack, value, line_number);
+		}
+		else if (strcmp(opcode, "pall") == 0)
+		{
+			pall(&stack, line_number);
 		}
 		line_number++;
 	}
