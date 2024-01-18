@@ -30,7 +30,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-stack_t *push(stack_t **stack, int value);
-void executemonty(stack_t **stack,const char *filename);
+stack_t *push(stack_t **stack, int value, unsigned int line_number);
+int executemonty(stack_t **stack,const char *opcode, int value, unsigned int line_number, FILE *file);
 void pall(stack_t **stack, unsigned int line_number);
 #endif

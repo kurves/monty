@@ -10,9 +10,11 @@
  * Description: function to push element
  * Return: struct value
  */
-stack_t *push(stack_t **stack, int value)
+stack_t *push(stack_t **stack, int value, unsigned int line_number)
 {
-	stack_t *new_node = malloc(sizeof(stack_t));	
+	stack_t *new_node = malloc(sizeof(stack_t));
+	(void)line_number;
+
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
