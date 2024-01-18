@@ -48,5 +48,7 @@ void executemonty(stack_t **stack,const char *filename)
 		}
 		line_number++;
 	}
+	free(line);
 	fclose(file);
+	return (EXIT_SUCCESS);
 }
