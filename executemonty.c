@@ -15,6 +15,7 @@ void executemonty(stack_t **stack,const char *filename)
 	char opcode[10];
 	int line_number = 1;
 	int value;
+	char *line = NULL;
 
 	if (file == NULL)
 	{
