@@ -18,7 +18,7 @@ void executemonty(stack_t **stack,const char *filename)
 
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file monty\n");
+		fprintf(stderr, "Error: Can't open file %s\n",filename);
 		exit(EXIT_FAILURE);
 	}
 	while (fscanf(file, "%s", opcode) == 1)
@@ -38,6 +38,11 @@ void executemonty(stack_t **stack,const char *filename)
 		else
 		{
 			fprintf(stderr, "Error: L%d: unknown instruction %s\n", line_number, opcode);
+			exit(EXIT_FAILURE);
+		}
+		if (line == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
 			exit(EXIT_FAILURE);
 		}
 		line_number++;
