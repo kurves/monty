@@ -9,7 +9,7 @@
  * Description: function to execute monty files
  * Return: nothing
  */
-void executemonty(stack_t **stack,const char *filename)
+void executemonty(stack_t **stack, const char *filename)
 {
 	FILE *file = fopen(filename, "r");
 	char opcode[10];
@@ -35,7 +35,7 @@ void executemonty(stack_t **stack,const char *filename)
 		}
 		else if (strcmp(opcode, "pop") == 0)
 		{
-			pall(&stack, line_number);
+			pall(stack, line_number);
 		}
 		else
 		{
