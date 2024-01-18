@@ -31,6 +31,5 @@ typedef struct instruction_s
 } instruction_t;
 
 void push(stack_t **stack, int value, unsigned int line_number);
-int executemonty(stack_t **stack,const char *opcode, int value, unsigned int line_number, FILE *file);
 void pall(stack_t **stack, unsigned int line_number);
 #endif
