@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
+#include "monty.h"
 /**
  * push - Pushes an element
  * @stack: Double pointer to the head of the stack

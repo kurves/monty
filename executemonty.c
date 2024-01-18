@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "main.h"
+#include "monty.h"
 
 /**
  * executemonty - function to execute monty
