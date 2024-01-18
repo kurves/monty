@@ -54,6 +54,10 @@ int main(int argc, char *argv[])
 		{
 			pop(&stack, line_number);
 		}
+		else if (strcmp(opcode, "swap") == 0)
+		{
+			pop(&stack, line_number);
+		}
 		line_number++;
 	}
 	fclose(file);
