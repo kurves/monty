@@ -30,9 +30,11 @@ int main(int argc, char *argv[])
 	}
 	while (fscanf(file, "%s", opcode) != EOF)
 	{
+		line_number++;
+
 		if (strcmp(opcode, "push") == 0)
 		{
-			if (scanf("%d", &value) != 1)
+			if (fscanf(file, "%d", &value) != 1)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
