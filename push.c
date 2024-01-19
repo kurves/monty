@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "monty.h"
+#include <ctype.h>
 /**
  * push - Pushes an element
  * @stack: Double pointer to the head of the stack
@@ -12,8 +13,20 @@
  */
 void push(stack_t **stack, int value, unsigned int line_number)
 {
+	char str[20];
+	size_t i;
 	stack_t *new_node = malloc(sizeof(stack_t));
-	(void)line_number;
+	
+	sprintf(str, "%d", value);
+
+	for (i = 0; i < strlen(str); i++)
+	{
+		if (!isdigit(str[i]) && (i == 0 && str[i] != '-'))
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
 
 	if (new_node == NULL)
 	{
@@ -40,9 +53,14 @@ void push(stack_t **stack, int value, unsigned int line_number)
  * Description: function to free stack
  * Return: nothing
  */
-void freeStack(stack_t **stack)
+void freeStack(stack_t *stack)
 {
-	(void)stack;
+	while (stack != NULL)
+	{
+		stack_t *temp = stack;
+		stack = stack->next;
+		free(temp);
+	}
 }
 /**
  * unknownCommand - handle unknown commands
