@@ -61,6 +61,10 @@ int main(int argc, char *argv[])
 		{
 			add(&stack, line_number);
 		}
+		else
+		{
+			unknownCommand(line_number, opcode);
+		}
 	}
 	fclose(file);
 	freeStack(&stack);

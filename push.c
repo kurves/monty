@@ -44,3 +44,14 @@ void freeStack(stack_t **stack)
 {
 	(void)stack;
 }
+/**
+ * unknownCommand - handle unknown commands
+ * @line_number: line number
+ * @command: keyed in command
+ * Description: function to handle unknown commands
+ * Return: nothing
+ */
+void unknownCommand(int line_number, const char *command)
+{
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, command);
+}
