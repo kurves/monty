@@ -34,3 +34,13 @@ void push(stack_t **stack, int value, unsigned int line_number)
 	}
 	*stack = new_node;
 }
+/**
+ * freeStack - frees stack
+ * @stack: Double pointer to the head of the stack
+ * Description: function to free stack
+ * Return: nothing
+ */
+void freeStack(stack_t **stack)
+{
+	(void)stack;
+}

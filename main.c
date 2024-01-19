@@ -63,6 +63,7 @@ int main(int argc, char *argv[])
 		}
 	}
 	fclose(file);
+	freeStack(&stack);
 	return (EXIT_SUCCESS);
 }
 
