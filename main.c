@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	{
 		if (strcmp(opcode, "push") == 0)
 		{
-			if (fscanf(file, "%d", &value) != 1)
+			if (scanf("%d", &value) != 1)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
