@@ -68,7 +68,8 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			unknownCommand(line_number, opcode);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+			exit(EXIT_FAILURE);
 		}
 	}
 	fclose(file);

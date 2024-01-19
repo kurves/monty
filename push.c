@@ -56,15 +56,3 @@ void freeStack(stack_t *stack)
 		free(temp);
 	}
 }
-/**
- * unknownCommand - handle unknown commands
- * @line_number: line number
- * @command: keyed in command
- * Description: function to handle unknown commands
- * Return: nothing
- */
-void unknownCommand(int line_number, const char *opcode)
-{
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-	exit(EXIT_FAILURE);
-}
