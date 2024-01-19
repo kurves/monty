@@ -49,6 +49,11 @@ int main(int argc, char *argv[])
 		{
 			pint(&stack, line_number);
 		}
+		else if (strcmp(opcode, "pinte") == 0)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+			exit(EXIT_FAILURE);
+		}
 		else if (strcmp(opcode, "pop") == 0)
 		{
 			pop(&stack, line_number);
