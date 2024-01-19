@@ -28,13 +28,13 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (fscanf(file, "%s", opcode) == 1)
+	while (fscanf(file, "%s", opcode) != EOF)
 	{
 		if (strcmp(opcode, "push") == 0)
 		{
 			if (fscanf(file, "%d", &value) != 1)
 			{
-				fprintf(stderr, "Error: L%d: usage: push integer\n", line_number);
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
 			push(&stack, value, line_number);
