@@ -61,7 +61,6 @@ int main(int argc, char *argv[])
 		{
 			add(&stack, line_number);
 		}
-		line_number++;
 	}
 	fclose(file);
 	return (EXIT_SUCCESS);
