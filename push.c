@@ -63,7 +63,8 @@ void freeStack(stack_t *stack)
  * Description: function to handle unknown commands
  * Return: nothing
  */
-void unknownCommand(int line_number, const char *command)
+void unknownCommand(int line_number, const char *opcode)
 {
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, command);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+	exit(EXIT_FAILURE);
 }
